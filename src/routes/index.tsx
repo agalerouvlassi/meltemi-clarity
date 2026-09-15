@@ -24,24 +24,24 @@ export const Route = createFileRoute("/")({
 type Lang = "en" | "el";
 const copy = {
   en: {
-    book: "Request final price", eyebrow: "Sunlit, honest, all-in", titleA: "€35 a day.", titleB: "Final price.", titleC: "Nothing else at checkout.",
+    book: "Reserve now", eyebrow: "Honest, all-in", titleA: "€35 a day.", titleB: "Final price.", titleC: "Nothing else at checkout.",
     intro: "A small local fleet of 12 cars in Kos. Full insurance, second driver, airport delivery and full-to-full fuel are already included.", calcCta: "See your real cost", fleetCta: "Browse the fleet",
     calc: "Calculate your real cost", calcIntro: "Choose your rental length and compare the whole cost—not just the headline.", days: "Days", final: "Final price", typical: "Typical low offer", headline: "Headline only", included: "incl.",
     items: ["Full insurance, no excess", "Second driver", "Airport delivery", "Fuel full-to-full"], extra: "usually charged separately", rate: "Headline rate", insurance: "Insurance", delivery: "Delivery & second driver", fees: "Fuel & fees",
     saving: (d:number,s:number) => `Meltemi is €${s} less for ${d} days — and you know the exact total up front.`, fleet: "Four cars, one kind of price", fleetNote: "Daily final prices — everything below included.", perDay: "/day", allIn: "final — all included",
     categories: ["City", "Economy", "Family", "Comfort"], receipt: "What’s in your €35", pay: "You pay at the counter", why: "Why Meltemi",
-    reasons: [["You pay the number you saw", "No insurance surprise, delivery fee or fuel markup. Your quote is your receipt."], ["A real person in Kos", "Twelve cars, one local team. You speak with us directly, not a call centre."], ["Pick up and drive", "A clean car delivered to the airport or your stay, with no card hold."]],
-    request: "Request your final-price quote", requestText: "Tell us your dates and we’ll confirm the exact total—the same number you’ll pay.", name: "Full name", email: "Email", pickup: "Pickup date", return: "Return date", category: "Car category", send: "Send request", sent: "Thank you. Your request is ready and we’ll be in touch.", contact: "Contact", point: "Pickup point", pointV: "Kos Island Airport (KGS), Greece", support: "Support", supportV: "Available 24/7", tagline: "Final price, every time. Kos, Greece.", formError: "Please check all fields and make sure the return date is after pickup.",
+    reasons: [["You pay the number you saw", "No insurance surprise, delivery fee or fuel markup. Your quote is your receipt."], ["Local company in Kos", "Twelve cars, one local team. You speak with us directly, not a call centre."], ["Pick up and drive", "A clean car delivered to the airport or your stay, with no card hold."]],
+    request: "Reserve now", requestText: "Tell us your dates and we’ll confirm the exact total—the same number you’ll pay.", name: "Full name", email: "Email", pickup: "Pickup date", return: "Return date", category: "Car category", send: "Send request", sent: "Thank you. Your request is ready and we’ll be in touch.", contact: "Contact", point: "Pickup point", pointV: "Kos Island Airport (KGS), Greece", support: "Support", supportV: "Available 24/7", tagline: "Final price, every time. Kos, Greece.", formError: "Please check all fields and make sure the return date is after pickup.",
   },
   el: {
-    book: "Ζητήστε τελική τιμή", eyebrow: "Φωτεινά, τίμια, όλα μέσα", titleA: "35€ την ημέρα.", titleB: "Τελική τιμή.", titleC: "Τίποτα άλλο στο ταμείο.",
+    book: "Κάνε κράτηση", eyebrow: "Τίμια, όλα μέσα", titleA: "35€ την ημέρα.", titleB: "Τελική τιμή.", titleC: "Τίποτα άλλο στο ταμείο.",
     intro: "Μικρός τοπικός στόλος 12 αυτοκινήτων στην Κω. Πλήρης ασφάλεια, 2ος οδηγός, παράδοση αεροδρομίου και καύσιμα full-to-full περιλαμβάνονται ήδη.", calcCta: "Δείτε το πραγματικό κόστος", fleetCta: "Δείτε τον στόλο",
     calc: "Υπολογίστε το πραγματικό κόστος", calcIntro: "Επιλέξτε ημέρες και συγκρίνετε ολόκληρο το κόστος — όχι μόνο την τιμή-κράχτη.", days: "Ημέρες", final: "Τελική τιμή", typical: "Τυπική φθηνή προσφορά", headline: "Μόνο αρχική τιμή", included: "μέσα",
     items: ["Πλήρης ασφάλεια χωρίς απαλλαγή", "2ος οδηγός", "Παράδοση αεροδρομίου", "Καύσιμα full-to-full"], extra: "συνήθως χρεώνεται ξεχωριστά", rate: "Αρχική τιμή", insurance: "Ασφάλεια", delivery: "Παράδοση & 2ος οδηγός", fees: "Καύσιμα & τέλη",
     saving: (d:number,s:number) => `Με τη Meltemi πληρώνετε €${s} λιγότερα για ${d} ημέρες — και ξέρετε το σύνολο από πριν.`, fleet: "Τέσσερα αυτοκίνητα, μία ξεκάθαρη τιμή", fleetNote: "Τελικές τιμές ανά ημέρα — όλα τα παρακάτω μέσα.", perDay: "/ημέρα", allIn: "τελική — όλα μέσα",
     categories: ["Πόλης", "Οικονομικό", "Οικογενειακό", "Άνεσης"], receipt: "Τι περιλαμβάνουν τα 35€", pay: "Πληρώνετε στο ταμείο", why: "Γιατί Meltemi",
-    reasons: [["Πληρώνετε την τιμή που είδατε", "Χωρίς έκπληξη στην ασφάλεια, χρέωση παράδοσης ή καπέλο στα καύσιμα."], ["Ένας πραγματικός άνθρωπος στην Κω", "Δώδεκα αυτοκίνητα, μία τοπική ομάδα. Μιλάτε απευθείας μαζί μας."], ["Παραλαβή και φύγατε", "Καθαρό αυτοκίνητο στο αεροδρόμιο ή το κατάλυμά σας, χωρίς δέσμευση κάρτας."]],
-    request: "Ζητήστε την τελική σας τιμή", requestText: "Πείτε μας τις ημερομηνίες και θα επιβεβαιώσουμε το ακριβές σύνολο που θα πληρώσετε.", name: "Ονοματεπώνυμο", email: "Email", pickup: "Ημερομηνία παραλαβής", return: "Ημερομηνία επιστροφής", category: "Κατηγορία αυτοκινήτου", send: "Αποστολή αιτήματος", sent: "Ευχαριστούμε. Το αίτημά σας καταχωρήθηκε και θα επικοινωνήσουμε μαζί σας.", contact: "Επικοινωνία", point: "Σημείο παραλαβής", pointV: "Αεροδρόμιο Κω (KGS), Ελλάδα", support: "Υποστήριξη", supportV: "Διαθέσιμη 24/7", tagline: "Τελική τιμή, κάθε φορά. Κως, Ελλάδα.", formError: "Ελέγξτε όλα τα πεδία και βεβαιωθείτε ότι η επιστροφή είναι μετά την παραλαβή.",
+    reasons: [["Πληρώνετε την τιμή που είδατε", "Χωρίς έκπληξη στην ασφάλεια, χρέωση παράδοσης ή καπέλο στα καύσιμα."], ["Τοπική επιχείρηση στην Κω", "Δώδεκα αυτοκίνητα, μία τοπική ομάδα. Μιλάτε απευθείας μαζί μας."], ["Παραλαβή και φύγατε", "Καθαρό αυτοκίνητο στο αεροδρόμιο ή το κατάλυμά σας, χωρίς δέσμευση κάρτας."]],
+    request: "Κάντε την κράτησή σας", requestText: "Πείτε μας τις ημερομηνίες και θα επιβεβαιώσουμε το ακριβές σύνολο που θα πληρώσετε.", name: "Ονοματεπώνυμο", email: "Email", pickup: "Ημερομηνία παραλαβής", return: "Ημερομηνία επιστροφής", category: "Κατηγορία αυτοκινήτου", send: "Αποστολή αιτήματος", sent: "Ευχαριστούμε. Το αίτημά σας καταχωρήθηκε και θα επικοινωνήσουμε μαζί σας.", contact: "Επικοινωνία", point: "Σημείο παραλαβής", pointV: "Αεροδρόμιο Κω (KGS), Ελλάδα", support: "Υποστήριξη", supportV: "Διαθέσιμη 24/7", tagline: "Τελική τιμή, κάθε φορά. Κως, Ελλάδα.", formError: "Ελέγξτε όλα τα πεδία και βεβαιωθείτε ότι η επιστροφή είναι μετά την παραλαβή.",
   },
 };
 
@@ -59,11 +59,39 @@ function Index() {
   const meltemi = days * 35, typical = days * 48, saving = typical - meltemi;
   const setSafeDays = (value:number) => setDays(Math.max(1, Math.min(60, value || 1)));
   const submit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault(); const data = new FormData(event.currentTarget);
-    const result = requestSchema.safeParse({ name: data.get("name"), email: data.get("email"), pickup: data.get("pickup"), returnDate: data.get("returnDate"), category: data.get("category") });
-    setStatus(result.success ? "sent" : "error");
-    if (result.success) event.currentTarget.reset();
+  event.preventDefault();
+  const data = new FormData(event.currentTarget);
+  const result = requestSchema.safeParse({
+    name: data.get("name"),
+    email: data.get("email"),
+    pickup: data.get("pickup"),
+    returnDate: data.get("returnDate"),
+    category: data.get("category"),
+  });
+
+  if (!result.success) {
+    setStatus("error");
+    return;
+  }
+
+  const callbackName = "jsonpCallback_" + Date.now();
+  (window as any)[callbackName] = (response: { status: string }) => {
+    delete (window as any)[callbackName];
+    document.body.removeChild(script);
+    if (response.status === "success") {
+      setStatus("sent");
+      event.currentTarget.reset();
+    } else {
+      setStatus("error");
+    }
   };
+
+  const params = new URLSearchParams({ ...result.data, callback: callbackName });
+  const script = document.createElement("script");
+  script.src = `https://script.google.com/macros/s/AKfycbwyn-lfS0hH_rXng6u3lq1a4-zVm52ewLYDylrfUP1Q96LhqeMZRyDo1p2lZPh_a7mJ/exec?${params.toString()}`;
+  script.onerror = () => setStatus("error");
+  document.body.appendChild(script);
+};
 
   return <main lang={lang} className="page-glow min-h-screen text-foreground">
     <header className="sticky top-0 z-40 mx-auto max-w-6xl px-4 sm:px-5"><div className="glass-panel mt-3 grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 rounded-xl px-4 py-3 sm:mt-4 sm:px-5">
