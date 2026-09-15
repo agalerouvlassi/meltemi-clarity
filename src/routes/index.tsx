@@ -63,14 +63,42 @@ const requestSchema = z
     category: z.string().min(1),
   })
   .refine((v) => {
-    const parseDate = (str: string) => {
-      if (str.includes("/")) {
-        const [d, m, y] = str.split("/");
-        return new Date(`${y}-${m}-${d}`).getTime();
+    const parseToTimestamp = (dateStr: string) => {
+      if (!dateStr) return NaN;
+
+      // Handle DD/MM/YYYY format
+      if (dateStr.includes("/")) {
+        const [dayStr, monthStr, yearStr] = dateStr.split("/");
+        const day = Number(dayStr);
+        const month = Number(monthStr);
+        const year = Number(yearStr);
+        if (day && month && year) {
+          return new Date(year, month - 1, day).getTime();
+        }
       }
-      return new Date(str).getTime();
+
+      // Handle YYYY-MM-DD format (Standard HTML date input)
+      if (dateStr.includes("-")) {
+        const [yearStr, monthStr, dayStr] = dateStr.split("-");
+        const year = Number(yearStr);
+        const month = Number(monthStr);
+        const day = Number(dayStr);
+        if (year && month && day) {
+          return new Date(year, month - 1, day).getTime();
+        }
+      }
+
+      return new Date(dateStr).getTime();
     };
-    return parseDate(v.returnDate) > parseDate(v.pickup);
+
+    const pickupTime = parseToTimestamp(v.pickup);
+    const returnTime = parseToTimestamp(v.returnDate);
+
+    if (isNaN(pickupTime) || isNaN(returnTime)) {
+      return false;
+    }
+
+    return returnTime > pickupTime;
   });
 
 function Index() {
