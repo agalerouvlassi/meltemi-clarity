@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
-import { Check, ChevronRight, Minus, Plus } from "lucide-react";
+import { Check, ChevronRight, Facebook, Instagram, Minus, Plus } from "lucide-react";
 import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/meltemi-hero.jpg";
@@ -30,20 +30,30 @@ const copy = {
     intro: "A small local fleet of 12 cars in Kos. Full insurance, second driver, airport delivery and full-to-full fuel are already included.", calcCta: "See your real cost", fleetCta: "Browse the fleet",
     calc: "Calculate your real cost", calcIntro: "Choose your rental length and compare the whole cost—not just the headline.", days: "Days", final: "Final price", typical: "Typical low offer", headline: "Headline only", included: "incl.",
     items: ["Full insurance, no excess", "Second driver", "Airport delivery", "Fuel full-to-full"], extra: "usually charged separately", rate: "Headline rate", insurance: "Insurance", delivery: "Delivery & second driver", fees: "Fuel & fees",
-    saving: (d:number,s:number) => `Meltemi is €${s} less for ${d} days — and you know the exact total up front.`, fleet: "Four cars, one kind of price", fleetNote: "Daily final prices — everything below included.", perDay: "/day", allIn: "final — all included",
-    categories: ["City", "Economy", "Family", "Comfort"], receipt: "What’s in your €35", pay: "You pay at the counter", why: "Why Meltemi",
+    saving: (d: number, s: number) => `Meltemi is €${s} less for ${d} days — and you know the exact total up front.`, fleet: "Four cars, one kind of price", fleetNote: "Daily final prices — everything below included.", perDay: "/day", allIn: "final — all included",
+    categories: ["City", "Economy", "Family", "Comfort"], receipt: "What's in your €35", pay: "You pay at the counter", why: "Why Meltemi",
     reasons: [["You pay the number you saw", "No insurance surprise, delivery fee or fuel markup. Your quote is your receipt."], ["Local company in Kos", "Twelve cars, one local team. You speak with us directly, not a call centre."], ["Pick up and drive", "A clean car delivered to the airport or your stay, with no card hold."]],
-    request: "Reserve now", requestText: "Tell us your dates and we’ll confirm the exact total—the same number you’ll pay.", name: "Full name", email: "Email", pickup: "Pickup date", return: "Return date", category: "Car category", send: "Send request", sent: "Thank you. Your request is ready and we’ll be in touch.", contact: "Contact", point: "Pickup point", pointV: "Kos Island Airport (KGS), Greece", support: "Support", supportV: "Available 24/7", tagline: "Final price, every time. Kos, Greece.", formError: "Please check all fields and make sure the return date is after pickup.",
+    request: "Reserve now", requestText: "Tell us your dates and we'll confirm the exact total—the same number you'll pay.", name: "Full name", email: "Email", pickup: "Pickup date", return: "Return date", category: "Car category", send: "Send request", sent: "Thank you. Your request is ready and we'll be in touch.", contact: "Contact", point: "Pickup point", pointV: "Kos Island Airport (KGS), Greece", support: "Support", supportV: "Available 24/7", tagline: "Final price, every time. Kos, Greece.", formError: "Please check all fields and make sure the return date is after pickup.",
+    fleetNav: "Fleet", pricingNav: "Pricing", faqNav: "FAQ", contactNav: "Contact",
+    footerNewsletterTitle: "Be The First To Know", footerNewsletterSub: "Subscribe for seasonal offers and Kos travel tips, straight to your inbox.", footerEmailPlaceholder: "Your Email", footerSubscribe: "Subscribe",
+    footerContactTitle: "Contact Us", footerAddressLabel: "Address:", footerAddressValue: "Kos Island Airport (KGS), 85300 Kos, Greece", footerTelLabel: "Tel:", footerEmailLabel: "Email:",
+    footerSitemapTitle: "Site Map", footerFollowTitle: "Follow Us",
+    footerBottomText: "By using this website, you are agreeing to our", footerPrivacy: "Privacy Policy.", footerCopyright: "© 2026 Meltemi Rentals",
   },
   el: {
     book: "Κάνε κράτηση", eyebrow: "Τίμια, όλα μέσα", titleA: "35€ την ημέρα.", titleB: "Τελική τιμή.", titleC: "Τίποτα άλλο στο ταμείο.",
     intro: "Μικρός τοπικός στόλος 12 αυτοκινήτων στην Κω. Πλήρης ασφάλεια, 2ος οδηγός, παράδοση αεροδρομίου και καύσιμα full-to-full περιλαμβάνονται ήδη.", calcCta: "Δείτε το πραγματικό κόστος", fleetCta: "Δείτε τον στόλο",
     calc: "Υπολογίστε το πραγματικό κόστος", calcIntro: "Επιλέξτε ημέρες και συγκρίνετε ολόκληρο το κόστος — όχι μόνο την τιμή-κράχτη.", days: "Ημέρες", final: "Τελική τιμή", typical: "Τυπική φθηνή προσφορά", headline: "Μόνο αρχική τιμή", included: "μέσα",
     items: ["Πλήρης ασφάλεια χωρίς απαλλαγή", "2ος οδηγός", "Παράδοση αεροδρομίου", "Καύσιμα full-to-full"], extra: "συνήθως χρεώνεται ξεχωριστά", rate: "Αρχική τιμή", insurance: "Ασφάλεια", delivery: "Παράδοση & 2ος οδηγός", fees: "Καύσιμα & τέλη",
-    saving: (d:number,s:number) => `Με τη Meltemi πληρώνετε €${s} λιγότερα για ${d} ημέρες — και ξέρετε το σύνολο από πριν.`, fleet: "Τέσσερα αυτοκίνητα, μία ξεκάθαρη τιμή", fleetNote: "Τελικές τιμές ανά ημέρα — όλα τα παρακάτω μέσα.", perDay: "/ημέρα", allIn: "τελική — όλα μέσα",
+    saving: (d: number, s: number) => `Με τη Meltemi πληρώνετε €${s} λιγότερα για ${d} ημέρες — και ξέρετε το σύνολο από πριν.`, fleet: "Τέσσερα αυτοκίνητα, μία ξεκάθαρη τιμή", fleetNote: "Τελικές τιμές ανά ημέρα — όλα τα παρακάτω μέσα.", perDay: "/ημέρα", allIn: "τελική — όλα μέσα",
     categories: ["Πόλης", "Οικονομικό", "Οικογενειακό", "Άνεσης"], receipt: "Τι περιλαμβάνουν τα 35€", pay: "Πληρώνετε στο ταμείο", why: "Γιατί Meltemi",
     reasons: [["Πληρώνετε την τιμή που είδατε", "Χωρίς έκπληξη στην ασφάλεια, χρέωση παράδοσης ή καπέλο στα καύσιμα."], ["Τοπική επιχείρηση στην Κω", "Δώδεκα αυτοκίνητα, μία τοπική ομάδα. Μιλάτε απευθείας μαζί μας."], ["Παραλαβή και φύγατε", "Καθαρό αυτοκίνητο στο αεροδρόμιο ή το κατάλυμά σας, χωρίς δέσμευση κάρτας."]],
     request: "Κάντε την κράτησή σας", requestText: "Πείτε μας τις ημερομηνίες και θα επιβεβαιώσουμε το ακριβές σύνολο που θα πληρώσετε.", name: "Ονοματεπώνυμο", email: "Email", pickup: "Ημερομηνία παραλαβής", return: "Ημερομηνία επιστροφής", category: "Κατηγορία αυτοκινήτου", send: "Αποστολή αιτήματος", sent: "Ευχαριστούμε. Το αίτημά σας καταχωρήθηκε και θα επικοινωνήσουμε μαζί σας.", contact: "Επικοινωνία", point: "Σημείο παραλαβής", pointV: "Αεροδρόμιο Κω (KGS), Ελλάδα", support: "Υποστήριξη", supportV: "Διαθέσιμη 24/7", tagline: "Τελική τιμή, κάθε φορά. Κως, Ελλάδα.", formError: "Ελέγξτε όλα τα πεδία και βεβαιωθείτε ότι η επιστροφή είναι μετά την παραλαβή.",
+    fleetNav: "Στόλος", pricingNav: "Τιμές", faqNav: "Συχνές ερωτήσεις", contactNav: "Επικοινωνία",
+    footerNewsletterTitle: "Μάθετε πρώτοι", footerNewsletterSub: "Εγγραφείτε για εποχιακές προσφορές και συμβουλές ταξιδιού στην Κω, απευθείας στο email σας.", footerEmailPlaceholder: "Το Email σας", footerSubscribe: "Εγγραφή",
+    footerContactTitle: "Επικοινωνία", footerAddressLabel: "Διεύθυνση:", footerAddressValue: "Αεροδρόμιο Κω (KGS), 85300 Κως, Ελλάδα", footerTelLabel: "Τηλ:", footerEmailLabel: "Email:",
+    footerSitemapTitle: "Χάρτης Ιστότοπου", footerFollowTitle: "Ακολουθήστε μας",
+    footerBottomText: "Χρησιμοποιώντας αυτόν τον ιστότοπο, αποδέχεστε την", footerPrivacy: "Πολιτική Απορρήτου.", footerCopyright: "© 2026 Meltemi Rentals",
   },
 };
 
@@ -66,7 +76,6 @@ const requestSchema = z
     const parseToTimestamp = (dateStr: string) => {
       if (!dateStr) return NaN;
 
-      // Handle DD/MM/YYYY format
       if (dateStr.includes("/")) {
         const [dayStr, monthStr, yearStr] = dateStr.split("/");
         const day = Number(dayStr);
@@ -77,7 +86,6 @@ const requestSchema = z
         }
       }
 
-      // Handle YYYY-MM-DD format (Standard HTML date input)
       if (dateStr.includes("-")) {
         const [yearStr, monthStr, dayStr] = dateStr.split("-");
         const year = Number(yearStr);
@@ -105,6 +113,8 @@ function Index() {
   const [lang, setLang] = useState<Lang>("en");
   const [days, setDays] = useState(7);
   const [status, setStatus] = useState<"idle" | "error" | "sent">("idle");
+  const [newsletterEmail, setNewsletterEmail] = useState("");
+  const [newsletterStatus, setNewsletterStatus] = useState<"idle" | "sent">("idle");
   const t = copy[lang];
   const meltemi = days * 35, typical = days * 48, saving = typical - meltemi;
   const setSafeDays = (value: number) => setDays(Math.max(1, Math.min(60, value || 1)));
@@ -144,16 +154,47 @@ function Index() {
     document.body.appendChild(script);
   };
 
+  const submitNewsletter = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (!newsletterEmail.trim()) return;
+    // Wire this up to your mailing list provider when ready.
+    setNewsletterStatus("sent");
+    setNewsletterEmail("");
+  };
+
   return (
     <main lang={lang} className="page-glow min-h-screen text-foreground">
-      <header className="sticky top-0 z-40 mx-auto max-w-6xl px-4 sm:px-5">
-        <div className="glass-panel mt-3 grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 rounded-xl px-4 py-3 sm:mt-4 sm:px-5">
-          <a href="#top" className="min-w-0 leading-none">
-            <span className="block truncate font-display text-lg font-semibold sm:text-xl">Meltemi Rentals</span>
-            <span className="mt-1 block truncate text-[11px] text-muted-foreground">Kos · Greece · 12 vehicles</span>
+      <header className="sticky top-0 z-40 w-full bg-background/95 backdrop-blur">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-5">
+          <a href="#top" className="flex shrink-0 items-center gap-2">
+            <img
+              src="/public/images/logo_meltemi.jpg"
+              alt="Meltemi Rentals"
+              className="h-9 w-auto sm:h-10"
+            />
+            <span className="hidden flex-col leading-tight sm:flex">
+              <span className="font-display text-lg font-semibold">Meltemi Rentals</span>
+              <span className="text-[11px] text-muted-foreground">Kos · Greece · 12 vehicles</span>
+            </span>
           </a>
-          <div className="flex shrink-0 items-center gap-2">
-            <div aria-label="Language" className="flex rounded-full bg-paper-deep p-1 text-xs font-medium">
+
+          <nav className="hidden items-center gap-6 text-sm font-medium md:flex">
+            <a href="#fleet" className="text-foreground/80 transition-colors hover:text-foreground">
+              {t.fleetNav}
+            </a>
+            <a href="#calculator" className="text-foreground/80 transition-colors hover:text-foreground">
+              {t.pricingNav}
+            </a>
+            <a href="#why" className="text-foreground/80 transition-colors hover:text-foreground">
+              {t.faqNav}
+            </a>
+            <a href="#contact" className="text-foreground/80 transition-colors hover:text-foreground">
+              {t.contactNav}
+            </a>
+          </nav>
+
+          <div className="flex shrink-0 items-center gap-3">
+            <div aria-label="Language" className="hidden rounded-full bg-paper-deep p-1 text-xs font-medium sm:flex">
               {(["en", "el"] as Lang[]).map((code) => (
                 <Button
                   key={code}
@@ -167,9 +208,21 @@ function Index() {
                 </Button>
               ))}
             </div>
+
             <Button asChild variant="deep" className="hidden sm:inline-flex">
               <a href="#request">{t.book}</a>
             </Button>
+
+            <button
+              aria-label="Menu"
+              className="flex items-center justify-center md:hidden"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="14" viewBox="0 0 38 18" fill="none">
+                <path d="M37.3333 1.31437H0" stroke="currentColor" strokeWidth="2" />
+                <path d="M37.3333 16.6856H0" stroke="currentColor" strokeWidth="2" />
+                <path d="M37.3333 9H0" stroke="currentColor" strokeWidth="2" />
+              </svg>
+            </button>
           </div>
         </div>
       </header>
@@ -249,7 +302,7 @@ function Index() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-5 py-8">
+      <section id="why" className="mx-auto max-w-6xl px-5 py-8">
         <div className="grid gap-6 lg:grid-cols-12">
           <div className="lg:col-span-7">
             <p className="text-xs font-medium uppercase text-primary">{t.receipt}</p>
@@ -324,7 +377,7 @@ function Index() {
               </div>
             </form>
           </div>
-          <aside className="glass-panel h-full rounded-xl p-6 lg:col-span-5">
+          <aside id="contact" className="glass-panel h-full rounded-xl p-6 lg:col-span-5">
             <p className="text-xs font-medium uppercase text-primary">{t.contact}</p>
             <dl className="mt-5 space-y-4 text-sm">
               <div>
@@ -348,18 +401,122 @@ function Index() {
         </div>
       </section>
 
-      <footer className="mx-auto max-w-6xl px-5 pb-10 pt-4">
-        <div className="rounded-xl bg-brand-deep p-6 text-primary-foreground">
-          <div className="grid gap-4 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center">
-            <div>
-              <p className="font-display text-lg font-semibold">Meltemi Rentals</p>
-              <p className="mt-1 text-sm opacity-70">{t.tagline}</p>
-            </div>
-            <p className="break-all font-mono text-xs opacity-70">KGS Airport · +30 22420 00000 · hello@meltemikos.gr</p>
+      <footer className="w-full bg-brand-deep text-primary-foreground">
+        {/* Newsletter bar */}
+        <div className="border-b border-primary-foreground/15">
+          <div className="mx-auto max-w-6xl px-5 py-10 text-center">
+            <h2 className="font-display text-2xl font-semibold uppercase tracking-wide sm:text-3xl">
+              {t.footerNewsletterTitle}
+            </h2>
+            <p className="mx-auto mt-3 max-w-xl text-sm opacity-80">{t.footerNewsletterSub}</p>
+            <form onSubmit={submitNewsletter} className="mx-auto mt-6 flex max-w-md flex-col gap-2 sm:flex-row">
+              <input
+                type="email"
+                required
+                value={newsletterEmail}
+                onChange={(e) => setNewsletterEmail(e.target.value)}
+                placeholder={t.footerEmailPlaceholder}
+                className="w-full flex-1 rounded-lg bg-primary-foreground/10 px-4 py-3 text-sm text-primary-foreground placeholder:text-primary-foreground/60 outline-none ring-1 ring-primary-foreground/20 focus:ring-2 focus:ring-highlight"
+              />
+              <Button type="submit" variant="hero" className="shrink-0">
+                {t.footerSubscribe}
+              </Button>
+            </form>
+            {newsletterStatus === "sent" && (
+              <p className="mt-3 text-sm text-highlight">{t.sent}</p>
+            )}
           </div>
-          <div className="mt-5 flex justify-between border-t border-primary-foreground/15 pt-4 text-xs opacity-60">
-            <span>© 2026 Meltemi Rentals</span>
-            <span>EN / ΕΛ</span>
+        </div>
+
+        {/* Main footer grid */}
+        <div className="mx-auto max-w-6xl px-5 py-10">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            <div>
+              <h3 className="text-xs font-semibold uppercase tracking-wide opacity-70">{t.footerContactTitle}</h3>
+              <div className="mt-4 space-y-3 text-sm">
+                <div>
+                  <p className="opacity-70">{t.footerAddressLabel}</p>
+                  <a
+                    href="https://www.google.com/maps/place/Kos+Island+International+Airport"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-1 block hover:text-highlight"
+                  >
+                    {t.footerAddressValue}
+                  </a>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="opacity-70">{t.footerTelLabel}</span>
+                  <a href="tel:+3022420000000" className="hover:text-highlight">+30 22420 00000</a>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="opacity-70">{t.footerEmailLabel}</span>
+                  <a href="mailto:hello@meltemikos.gr" className="hover:text-highlight">hello@meltemikos.gr</a>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xs font-semibold uppercase tracking-wide opacity-70">{t.footerSitemapTitle}</h3>
+              <ul className="mt-4 space-y-3 text-sm">
+                <li><a href="#fleet" className="hover:text-highlight">{t.fleetNav}</a></li>
+                <li><a href="#calculator" className="hover:text-highlight">{t.pricingNav}</a></li>
+                <li><a href="#why" className="hover:text-highlight">{t.faqNav}</a></li>
+                <li><a href="#contact" className="hover:text-highlight">{t.contactNav}</a></li>
+                <li><a href="#request" className="hover:text-highlight">{t.book}</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-xs font-semibold uppercase tracking-wide opacity-70">{t.point}</h3>
+              <p className="mt-4 text-sm">{t.pointV}</p>
+              <p className="mt-4 text-xs font-semibold uppercase tracking-wide opacity-70">{t.support}</p>
+              <p className="mt-1 text-sm">{t.supportV}</p>
+            </div>
+
+            <div>
+              <h3 className="text-xs font-semibold uppercase tracking-wide opacity-70">{t.footerFollowTitle}</h3>
+              <div className="mt-4 flex gap-3">
+                <a
+                  href="https://www.instagram.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Instagram"
+                  className="grid size-9 place-items-center rounded-full bg-primary-foreground/10 transition-colors hover:bg-highlight hover:text-brand-deep"
+                >
+                  <Instagram className="size-4" />
+                </a>
+                <a
+                  href="https://www.facebook.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Facebook"
+                  className="grid size-9 place-items-center rounded-full bg-primary-foreground/10 transition-colors hover:bg-highlight hover:text-brand-deep"
+                >
+                  <Facebook className="size-4" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom bar */}
+        <div className="border-t border-primary-foreground/15">
+          <div className="mx-auto flex max-w-6xl flex-col items-center gap-3 px-5 py-6 text-center sm:flex-row sm:justify-between sm:text-left">
+            <p className="text-xs opacity-70">
+              {t.footerBottomText}{" "}
+              <a href="/data-privacy" className="underline hover:text-highlight">
+                {t.footerPrivacy}
+              </a>
+            </p>
+            <div className="flex items-center gap-3">
+              <img
+                src="/public/images/logo_meltemi.jpg"
+                alt="Meltemi Rentals"
+                className="h-7 w-auto opacity-90"
+              />
+              <span className="text-xs opacity-60">{t.footerCopyright}</span>
+            </div>
           </div>
         </div>
       </footer>
