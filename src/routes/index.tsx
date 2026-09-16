@@ -26,8 +26,8 @@ export const Route = createFileRoute("/")({
 type Lang = "en" | "el";
 const copy = {
   en: {
-    book: "Reserve now", eyebrow: "Honest, all-in", titleA: "€35 a day.", titleB: "Final price.", titleC: "Nothing else at checkout.",
-    intro: "A small local fleet of 12 cars in Kos. Full insurance, second driver, airport delivery and full-to-full fuel are already included.", calcCta: "See your real cost", fleetCta: "Browse the fleet",
+    book: "Reserve now", titleA: "€35 a day.", titleB: "Final price.", titleC: "Nothing else at checkout.",
+    intro: "Local fleet in Kos. Full insurance, second driver, airport delivery and full-to-full fuel are already included.", calcCta: "See your real cost", fleetCta: "Browse the fleet",
     calc: "Calculate your real cost", calcIntro: "Choose your rental length and compare the whole cost—not just the headline.", days: "Days", final: "Final price", typical: "Typical low offer", headline: "Headline only", included: "incl.",
     items: ["Full insurance, no excess", "Second driver", "Airport delivery", "Fuel full-to-full"], extra: "usually charged separately", rate: "Headline rate", insurance: "Insurance", delivery: "Delivery & second driver", fees: "Fuel & fees",
     saving: (d: number, s: number) => `Meltemi is €${s} less for ${d} days — and you know the exact total up front.`, fleet: "Four cars, one kind of price", fleetNote: "Daily final prices — everything below included.", perDay: "/day", allIn: "final — all included",
@@ -41,8 +41,8 @@ const copy = {
     footerBottomText: "By using this website, you are agreeing to our", footerPrivacy: "Privacy Policy.", footerCopyright: "© 2026 Meltemi Rentals",
   },
   el: {
-    book: "Κάνε κράτηση", eyebrow: "Τίμια, όλα μέσα", titleA: "35€ την ημέρα.", titleB: "Τελική τιμή.", titleC: "Τίποτα άλλο στο ταμείο.",
-    intro: "Μικρός τοπικός στόλος 12 αυτοκινήτων στην Κω. Πλήρης ασφάλεια, 2ος οδηγός, παράδοση αεροδρομίου και καύσιμα full-to-full περιλαμβάνονται ήδη.", calcCta: "Δείτε το πραγματικό κόστος", fleetCta: "Δείτε τον στόλο",
+    book: "Κάνε κράτηση", titleA: "35€ την ημέρα.", titleB: "Τελική τιμή.", titleC: "Τίποτα άλλο στο ταμείο.",
+    intro: "Τοπικός στόλος στην Κω. Πλήρης ασφάλεια, 2ος οδηγός, παράδοση αεροδρομίου και καύσιμα full-to-full περιλαμβάνονται ήδη.", calcCta: "Δείτε το πραγματικό κόστος", fleetCta: "Δείτε τον στόλο",
     calc: "Υπολογίστε το πραγματικό κόστος", calcIntro: "Επιλέξτε ημέρες και συγκρίνετε ολόκληρο το κόστος — όχι μόνο την τιμή-κράχτη.", days: "Ημέρες", final: "Τελική τιμή", typical: "Τυπική φθηνή προσφορά", headline: "Μόνο αρχική τιμή", included: "μέσα",
     items: ["Πλήρης ασφάλεια χωρίς απαλλαγή", "2ος οδηγός", "Παράδοση αεροδρομίου", "Καύσιμα full-to-full"], extra: "συνήθως χρεώνεται ξεχωριστά", rate: "Αρχική τιμή", insurance: "Ασφάλεια", delivery: "Παράδοση & 2ος οδηγός", fees: "Καύσιμα & τέλη",
     saving: (d: number, s: number) => `Με τη Meltemi πληρώνετε €${s} λιγότερα για ${d} ημέρες — και ξέρετε το σύνολο από πριν.`, fleet: "Τέσσερα αυτοκίνητα, μία ξεκάθαρη τιμή", fleetNote: "Τελικές τιμές ανά ημέρα — όλα τα παρακάτω μέσα.", perDay: "/ημέρα", allIn: "τελική — όλα μέσα",
@@ -174,7 +174,7 @@ function Index() {
             />
             <span className="hidden flex-col leading-tight sm:flex">
               <span className="font-display text-lg font-semibold">Meltemi Rentals</span>
-              <span className="text-[11px] text-muted-foreground">Kos · Greece · 12 vehicles</span>
+              <span className="text-[11px] text-muted-foreground">Kos · Greece</span>
             </span>
           </a>
 
@@ -230,10 +230,6 @@ function Index() {
       <section id="top" className="mx-auto max-w-6xl px-5 pb-7 pt-10">
         <div className="grid gap-7 lg:grid-cols-12 lg:items-center">
           <div className="reveal lg:col-span-7">
-            <p className="glass-panel inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium text-brand-deep">
-              <span className="size-1.5 rounded-full bg-highlight" />
-              {t.eyebrow}
-            </p>
             <h1 className="mt-5 font-display text-5xl font-semibold leading-none sm:text-6xl">
               {t.titleA} <span className="text-primary">{t.titleB}</span> {t.titleC}
             </h1>
@@ -511,7 +507,7 @@ function Index() {
             </p>
             <div className="flex items-center gap-3">
               <img
-                src="/images/logo_meltemi.jpg"
+                src="public/images/logo_meltemi.jpg"
                 alt="Meltemi Rentals"
                 className="h-7 w-auto opacity-90"
               />
