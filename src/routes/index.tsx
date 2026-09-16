@@ -187,7 +187,7 @@ function Index() {
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-5">
           <a href="#top" className="flex shrink-0 items-center gap-2">
             <img
-              src="/public/images/logo_meltemi.jpg"
+              src="/images/logo_meltemi.jpg"
               alt="Meltemi Rentals"
               className="h-9 w-auto sm:h-10"
             />
