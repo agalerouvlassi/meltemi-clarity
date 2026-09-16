@@ -511,7 +511,7 @@ function Index() {
             </p>
             <div className="flex items-center gap-3">
               <img
-                src="/public/images/logo_meltemi.jpg"
+                src="public/images/logo_meltemi.jpg"
                 alt="Meltemi Rentals"
                 className="h-7 w-auto opacity-90"
               />
