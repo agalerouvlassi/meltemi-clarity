@@ -44,7 +44,7 @@ const copy = {
       { name: "Sophie L.", location: "Lyon, FR", stars: 4, date: "Sep 2026", text: "Great value for money. Car in perfect condition, friendly and available staff. Transparent final price, nothing to complain about." },
       { name: "Marco R.", location: "Milano, IT", stars: 5, date: "Jul 2026", text: "Everything was exactly as promised. No tricks, no extra fees at pickup. The 24/7 support even helped us at midnight. Top!" },
     ],
-    fleetNav: "Fleet", pricingNav: "Pricing", faqNav: "FAQ", contactNav: "Contact",
+    fleetNav: "Fleet", pricingNav: "Pricing", faqNav: "Reviews", contactNav: "Contact",
     footerNewsletterTitle: "Be The First To Know", footerNewsletterSub: "Subscribe for seasonal offers and Kos travel tips, straight to your inbox.", footerEmailPlaceholder: "Your Email", footerSubscribe: "Subscribe",
     footerContactTitle: "Contact Us", footerAddressLabel: "Address:", footerAddressValue: "Kos Island Airport (KGS), 85300 Kos, Greece", footerTelLabel: "Tel:", footerEmailLabel: "Email:",
     footerSitemapTitle: "Site Map", footerFollowTitle: "Follow Us",
@@ -68,7 +68,7 @@ const copy = {
       { name: "Sophie L.", location: "Λυών, ΓΑ", stars: 4, date: "Σεπτ 2026", text: "Πολύ καλή σχέση ποιότητας-τιμής. Αυτοκίνητο σε άριστη κατάσταση, ευγενικό και διαθέσιμο προσωπικό. Τελική τιμή ξεκάθαρη, τίποτα να παραπονεθώ." },
       { name: "Marco R.", location: "Μιλάνο, ΙΤ", stars: 5, date: "Ιούλ 2026", text: "Όλα ακριβώς όπως τα υποσχέθηκαν. Κανένα κόλπο, καμία επιπλέον χρέωση στην παραλαβή. Η 24/7 υποστήριξη μας βοήθησε ακόμα και τα μεσάνυχτα. Κορυφαίο!" },
     ],
-    fleetNav: "Στόλος", pricingNav: "Τιμές", faqNav: "Συχνές ερωτήσεις", contactNav: "Επικοινωνία",
+    fleetNav: "Στόλος", pricingNav: "Τιμές", faqNav: "Κριτικές", contactNav: "Επικοινωνία",
     footerNewsletterTitle: "Μάθετε πρώτοι", footerNewsletterSub: "Εγγραφείτε για εποχιακές προσφορές και συμβουλές ταξιδιού στην Κω, απευθείας στο email σας.", footerEmailPlaceholder: "Το Email σας", footerSubscribe: "Εγγραφή",
     footerContactTitle: "Επικοινωνία", footerAddressLabel: "Διεύθυνση:", footerAddressValue: "Αεροδρόμιο Κω (KGS), 85300 Κως, Ελλάδα", footerTelLabel: "Τηλ:", footerEmailLabel: "Email:",
     footerSitemapTitle: "Χάρτης Ιστότοπου", footerFollowTitle: "Ακολουθήστε μας",
@@ -204,7 +204,7 @@ function Index() {
             <a href="#calculator" className="text-foreground/80 transition-colors hover:text-foreground">
               {t.pricingNav}
             </a>
-            <a href="#why" className="text-foreground/80 transition-colors hover:text-foreground">
+            <a href="#reviews" className="text-foreground/80 transition-colors hover:text-foreground">
               {t.faqNav}
             </a>
             <a href="#contact" className="text-foreground/80 transition-colors hover:text-foreground">
@@ -530,7 +530,7 @@ function Index() {
               <ul className="mt-4 space-y-3 text-sm">
                 <li><a href="#fleet" className="hover:text-highlight">{t.fleetNav}</a></li>
                 <li><a href="#calculator" className="hover:text-highlight">{t.pricingNav}</a></li>
-                <li><a href="#why" className="hover:text-highlight">{t.faqNav}</a></li>
+                <li><a href="#reviews" className="hover:text-highlight">{t.faqNav}</a></li>
                 <li><a href="#contact" className="hover:text-highlight">{t.contactNav}</a></li>
                 <li><a href="#request" className="hover:text-highlight">{t.book}</a></li>
               </ul>
