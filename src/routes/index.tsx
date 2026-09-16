@@ -589,6 +589,8 @@ function Index() {
           </div>
         </div>
       </footer>
+
+      <WhatsAppChat lang={lang} />
     </main>
   );
 }
