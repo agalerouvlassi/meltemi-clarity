@@ -300,8 +300,8 @@ function Index() {
             <form onSubmit={submit} className="mt-5 grid gap-4 sm:grid-cols-2">
               <Field name="name" label={t.name} type="text" wide />
               <Field name="email" label={t.email} type="email" wide />
-              <Field name="pickup" label={t.pickup} type="date" />
-              <Field name="returnDate" label={t.return} type="date" />
+              <DateField name="pickup" label={t.pickup} />
+              <DateField name="returnDate" label={t.return} />
               <label className="sm:col-span-2">
                 <span className="text-sm font-medium text-muted-foreground">{t.category}</span>
                 <select name="category" required className="mt-1.5 w-full rounded-lg bg-card px-3.5 py-3 text-sm shadow-sm outline-none ring-1 ring-foreground/10 focus:ring-2 focus:ring-primary">
@@ -393,6 +393,36 @@ function Field({ name, label, type, wide = false }: { name: string; label: strin
     <label className={wide ? "sm:col-span-2" : ""}>
       <span className="text-sm font-medium text-muted-foreground">{label}</span>
       <input name={name} type={type} required maxLength={type === "text" ? 100 : 255} className="mt-1.5 w-full rounded-lg bg-card px-3.5 py-3 text-sm shadow-sm outline-none ring-1 ring-foreground/10 focus:ring-2 focus:ring-primary" />
+    </label>
+  );
+}
+
+function DateField({ name, label }: { name: string; label: string }) {
+  const [value, setValue] = useState("");
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let digits = e.target.value.replace(/\D/g, "").slice(0, 8);
+    let formatted = digits;
+    if (digits.length > 4) formatted = `${digits.slice(0, 2)}/${digits.slice(2, 4)}/${digits.slice(4)}`;
+    else if (digits.length > 2) formatted = `${digits.slice(0, 2)}/${digits.slice(2)}`;
+    setValue(formatted);
+  };
+
+  return (
+    <label>
+      <span className="text-sm font-medium text-muted-foreground">{label}</span>
+      <input
+        name={name}
+        type="text"
+        inputMode="numeric"
+        placeholder="DD/MM/YYYY"
+        pattern="\d{2}/\d{2}/\d{4}"
+        required
+        maxLength={10}
+        value={value}
+        onChange={handleChange}
+        className="mt-1.5 w-full rounded-lg bg-card px-3.5 py-3 text-sm shadow-sm outline-none ring-1 ring-foreground/10 focus:ring-2 focus:ring-primary"
+      />
     </label>
   );
 }
