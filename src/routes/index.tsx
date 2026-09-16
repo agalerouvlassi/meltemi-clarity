@@ -3,6 +3,7 @@ import { useState, type FormEvent } from "react";
 import { Check, ChevronRight, Facebook, Instagram, Minus, Plus, Star } from "lucide-react";
 import { z } from "zod";
 import { Button } from "@/components/ui/button";
+import { WhatsAppChat } from "@/components/WhatsAppChat";
 import heroImage from "@/assets/meltemi-hero.jpg";
 import cityImage from "@/assets/car-city.jpg";
 import economyImage from "@/assets/car-economy.jpg";
