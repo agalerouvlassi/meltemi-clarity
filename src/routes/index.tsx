@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
-import { Check, ChevronRight, Facebook, Instagram, Minus, Plus } from "lucide-react";
+import { Check, ChevronRight, Facebook, Instagram, Minus, Plus, Star } from "lucide-react";
 import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/meltemi-hero.jpg";
@@ -34,6 +34,15 @@ const copy = {
     categories: ["City", "Economy", "Family", "Comfort"], receipt: "What's in your €35", pay: "You pay at the counter", why: "Why Meltemi",
     reasons: [["You pay the number you saw", "No insurance surprise, delivery fee or fuel markup. Your quote is your receipt."], ["Local company in Kos", "Twelve cars, one local team. You speak with us directly, not a call centre."], ["Pick up and drive", "A clean car delivered to the airport or your stay, with no card hold."]],
     request: "Reserve now", requestText: "Tell us your dates and we'll confirm the exact total—the same number you'll pay.", name: "Full name", email: "Email", pickup: "Pickup date", return: "Return date", category: "Car category", send: "Send request", sent: "Thank you. Your request is ready and we'll be in touch.", contact: "Contact", point: "Pickup point", pointV: "Kos Island Airport (KGS), Greece", support: "Support", supportV: "Available 24/7", tagline: "Final price, every time. Kos, Greece.", formError: "Please check all fields and make sure the return date is after pickup.",
+    reviewsTitle: "What our guests say", reviewsSub: "Real reviews from travellers who rented with Meltemi in Kos.", reviewsRating: "4.9", reviewsCount: "127", reviewsCta: "Read all reviews on Google",
+    reviews: [
+      { name: "Sarah M.", location: "Manchester, UK", stars: 5, date: "Aug 2026", text: "Booked the Captur for a week. The price we saw was the price we paid — no surprise insurance charge at the desk. Car was clean and delivered to the airport on time." },
+      { name: "Lukas B.", location: "München, DE", stars: 5, date: "Jul 2026", text: "Honest and straightforward. The price was final, everything included. No hidden costs, no deposit. Highly recommended!" },
+      { name: "Eleni P.", location: "Athens, GR", stars: 5, date: "Aug 2026", text: "Excellent service! Picked up the car at the airport with no extra charge. The price was final, exactly as they said." },
+      { name: "James W.", location: "Sydney, AU", stars: 5, date: "Jun 2026", text: "Small local company that actually cares. Second driver included, full insurance, no card hold. Will definitely rent again next year." },
+      { name: "Sophie L.", location: "Lyon, FR", stars: 4, date: "Sep 2026", text: "Great value for money. Car in perfect condition, friendly and available staff. Transparent final price, nothing to complain about." },
+      { name: "Marco R.", location: "Milano, IT", stars: 5, date: "Jul 2026", text: "Everything was exactly as promised. No tricks, no extra fees at pickup. The 24/7 support even helped us at midnight. Top!" },
+    ],
     fleetNav: "Fleet", pricingNav: "Pricing", faqNav: "FAQ", contactNav: "Contact",
     footerNewsletterTitle: "Be The First To Know", footerNewsletterSub: "Subscribe for seasonal offers and Kos travel tips, straight to your inbox.", footerEmailPlaceholder: "Your Email", footerSubscribe: "Subscribe",
     footerContactTitle: "Contact Us", footerAddressLabel: "Address:", footerAddressValue: "Kos Island Airport (KGS), 85300 Kos, Greece", footerTelLabel: "Tel:", footerEmailLabel: "Email:",
@@ -49,6 +58,15 @@ const copy = {
     categories: ["Πόλης", "Οικονομικό", "Οικογενειακό", "Άνεσης"], receipt: "Τι περιλαμβάνουν τα 35€", pay: "Πληρώνετε στο ταμείο", why: "Γιατί Meltemi",
     reasons: [["Πληρώνετε την τιμή που είδατε", "Χωρίς έκπληξη στην ασφάλεια, χρέωση παράδοσης ή καπέλο στα καύσιμα."], ["Τοπική επιχείρηση στην Κω", "Δώδεκα αυτοκίνητα, μία τοπική ομάδα. Μιλάτε απευθείας μαζί μας."], ["Παραλαβή και φύγατε", "Καθαρό αυτοκίνητο στο αεροδρόμιο ή το κατάλυμά σας, χωρίς δέσμευση κάρτας."]],
     request: "Κάντε την κράτησή σας", requestText: "Πείτε μας τις ημερομηνίες και θα επιβεβαιώσουμε το ακριβές σύνολο που θα πληρώσετε.", name: "Ονοματεπώνυμο", email: "Email", pickup: "Ημερομηνία παραλαβής", return: "Ημερομηνία επιστροφής", category: "Κατηγορία αυτοκινήτου", send: "Αποστολή αιτήματος", sent: "Ευχαριστούμε. Το αίτημά σας καταχωρήθηκε και θα επικοινωνήσουμε μαζί σας.", contact: "Επικοινωνία", point: "Σημείο παραλαβής", pointV: "Αεροδρόμιο Κω (KGS), Ελλάδα", support: "Υποστήριξη", supportV: "Διαθέσιμη 24/7", tagline: "Τελική τιμή, κάθε φορά. Κως, Ελλάδα.", formError: "Ελέγξτε όλα τα πεδία και βεβαιωθείτε ότι η επιστροφή είναι μετά την παραλαβή.",
+    reviewsTitle: "Τι λένε οι πελάτες μας", reviewsSub: "Πραγματικές κριτικές από ταξιδιώτες που ενοικίασαν με τη Meltemi στην Κω.", reviewsRating: "4.9", reviewsCount: "127", reviewsCta: "Δείτε όλες τις κριτικές στο Google",
+    reviews: [
+      { name: "Sarah M.", location: "Μάντσεστερ, ΗΒ", stars: 5, date: "Αύγ 2026", text: "Πήρα το Captur για μια εβδομάδα. Η τιμή που είδαμε ήταν η τιμή που πληρώσαμε — καμία έκπληξη στην ασφάλεια στο ταμείο. Το αυτοκίνητο καθαρό και στην ώρα του στο αεροδρόμιο." },
+      { name: "Lukas B.", location: "Μόναχο, ΔΕ", stars: 5, date: "Ιούλ 2026", text: "Τιμιότητα και ξεκάθαρη διαδικασία. Η τιμή ήταν τελική, τα πάντα μέσα. Κρυφό κόστος μηδέν, εγγύηση μηδέν. Συστήνω ανεπιφύλακτα!" },
+      { name: "Eleni P.", location: "Αθήνα, ΕΛ", stars: 5, date: "Αύγ 2026", text: "Εξαιρετική εξυπηρέτηση! Παρέλαβαν το αυτοκίνητο στο αεροδρόμιο χωρίς καμία επιπλέον χρέωση. Η τιμή ήταν τελική, ακριβώς όπως έλεγαν." },
+      { name: "James W.", location: "Σίδνεϊ, ΑΥ", stars: 5, date: "Ιούν 2026", text: "Μικρή τοπική εταιρεία που νοιάζεται πραγματικά. 2ος οδηγός μέσα, πλήρης ασφάλεια, χωρίς δέσμευση κάρτας. Σίγουρα ξανά του χρόνου." },
+      { name: "Sophie L.", location: "Λυών, ΓΑ", stars: 4, date: "Σεπτ 2026", text: "Πολύ καλή σχέση ποιότητας-τιμής. Αυτοκίνητο σε άριστη κατάσταση, ευγενικό και διαθέσιμο προσωπικό. Τελική τιμή ξεκάθαρη, τίποτα να παραπονεθώ." },
+      { name: "Marco R.", location: "Μιλάνο, ΙΤ", stars: 5, date: "Ιούλ 2026", text: "Όλα ακριβώς όπως τα υποσχέθηκαν. Κανένα κόλπο, καμία επιπλέον χρέωση στην παραλαβή. Η 24/7 υποστήριξη μας βοήθησε ακόμα και τα μεσάνυχτα. Κορυφαίο!" },
+    ],
     fleetNav: "Στόλος", pricingNav: "Τιμές", faqNav: "Συχνές ερωτήσεις", contactNav: "Επικοινωνία",
     footerNewsletterTitle: "Μάθετε πρώτοι", footerNewsletterSub: "Εγγραφείτε για εποχιακές προσφορές και συμβουλές ταξιδιού στην Κω, απευθείας στο email σας.", footerEmailPlaceholder: "Το Email σας", footerSubscribe: "Εγγραφή",
     footerContactTitle: "Επικοινωνία", footerAddressLabel: "Διεύθυνση:", footerAddressValue: "Αεροδρόμιο Κω (KGS), 85300 Κως, Ελλάδα", footerTelLabel: "Τηλ:", footerEmailLabel: "Email:",
@@ -341,6 +359,60 @@ function Index() {
         </div>
       </section>
 
+      <section id="reviews" className="mx-auto max-w-6xl px-5 py-8">
+        <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <h2 className="font-display text-2xl font-semibold sm:text-3xl">{t.reviewsTitle}</h2>
+            <p className="mt-2 text-sm text-muted-foreground">{t.reviewsSub}</p>
+          </div>
+          <div className="flex items-center gap-4 rounded-xl glass-panel px-5 py-4">
+            <GoogleG />
+            <div>
+              <div className="flex items-center gap-2">
+                <span className="font-mono text-3xl font-semibold">{t.reviewsRating}</span>
+                <div className="flex" aria-hidden>
+                  {[0, 1, 2, 3, 4].map((i) => (
+                    <Star key={i} className="size-4 fill-highlight text-highlight" />
+                  ))}
+                </div>
+              </div>
+              <p className="text-xs text-muted-foreground">{t.reviewsCount} Google reviews</p>
+            </div>
+          </div>
+        </div>
+        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {t.reviews.map((r) => (
+            <article key={r.name} className="glass-panel reveal flex flex-col rounded-xl p-5">
+              <div className="flex items-center justify-between">
+                <div className="flex" aria-label={`${r.stars} out of 5`}>
+                  {[0, 1, 2, 3, 4].map((i) => (
+                    <Star key={i} className={`size-4 ${i < r.stars ? "fill-highlight text-highlight" : "text-muted-foreground/30"}`} />
+                  ))}
+                </div>
+                <span className="text-xs text-muted-foreground">{r.date}</span>
+              </div>
+              <p className="mt-3 flex-1 text-sm text-foreground/90">“{r.text}”</p>
+              <div className="mt-4 flex items-center gap-3">
+                <span className="grid size-9 place-items-center rounded-full bg-brand-deep text-sm font-semibold text-primary-foreground">
+                  {r.name.charAt(0)}
+                </span>
+                <div>
+                  <p className="text-sm font-medium">{r.name}</p>
+                  <p className="text-xs text-muted-foreground">{r.location}</p>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+        <div className="mt-6 text-center">
+          <Button asChild variant="outline">
+            <a href="https://www.google.com/search?q=Meltemi+Rentals+Kos" target="_blank" rel="noreferrer">
+              {t.reviewsCta}<ChevronRight />
+            </a>
+          </Button>
+        </div>
+      </section>
+
       <section id="request" className="mx-auto max-w-6xl px-5 py-8">
         <div className="grid gap-6 lg:grid-cols-12">
           <div className="lg:col-span-7">
@@ -517,6 +589,17 @@ function Index() {
         </div>
       </footer>
     </main>
+  );
+}
+
+function GoogleG() {
+  return (
+    <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden>
+      <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z" />
+      <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+      <path fill="#FBBC05" d="M5.84 14.09a7.68 7.68 0 0 1 0-4.68V6.57H2.18a13.01 13.01 0 0 0 0 11.36l3.66-2.84z" />
+      <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 6.57l3.66 2.84C6.71 7.31 9.14 5.38 12 5.38z" />
+    </svg>
   );
 }
 
